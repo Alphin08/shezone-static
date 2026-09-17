@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+
+/*=====================================
+COLORS
+=====================================*/
+
+    /* Brand */
+
+    --primary:#4d5c5f;
+    --primary-light:#6b7e82;
+    --primary-dark:#2f3d40;
+    --seconday:#3d4446eb;
+
+    /* Accent */
+
+    --accent:#8EAD96;
+
+    /* Neutral */
+
+    --white:#FFFFFF;
+    --black:#232323;
+
+    /* Backgrounds */
+
+    --bg:#FFFFFF;
+    --accent-bg:#edf3ef;
+    --bg-light:#F6F5F2;
+    --bg-dark:#232323;
+
+    /* Text */
+
+    --text:#475246;
+    --text-light:#777777;
+    --text-muted:#A0A0A0;
+
+    /* Borders */
+
+    --border:#E6E6E6;
+    --border-dark:rgba(255,255,255,.08);
+
+    /* States */
+
+    --success:#3BA55C;
+    --warning:#F4B400;
+    --error:#D93025;
+
+
+
+    /* Typography */
+
+    --font-heading:"Playfair Display", serif;
+
+    --font-body:"Poppins", sans-serif;
+
+    --fs-xs:.8rem;
+
+    --fs-sm:.9rem;
+
+    --fs-base:1rem;
+
+    --fs-lg:1.125rem;
+
+    --fs-xl:1.5rem;
+
+    --fs-2xl:2rem;
+
+    --fs-3xl:2.8rem;
+
+    --fs-hero:clamp(2.8rem,6vw,4.5rem);
+
+    --fw-light:300;
+
+    --fw-regular:400;
+
+    --fw-medium:500;
+
+    --fw-semibold:600;
+
+    --fw-bold:700;
+
+    --lh-tight:1.2;
+
+    --lh-normal:1.6;
+
+    --lh-relaxed:1.9;
+
+    --tracking-sm:.5px;
+
+    --tracking-md:1px;
+
+    --tracking-lg:2px;
+
+
+    /* Layout */
+
+    --border-radius:10px;
+
+    --transition:.3s ease;
+
+    --container:1200px;
+
+    --section-padding-block:clamp(70px,8vw,120px);
+
+    /* Shadows (Recommended) */
+
+    --shadow-sm:0 5px 15px rgba(0,0,0,.05);
+
+    --shadow-md:0 15px 35px rgba(0,0,0,.08);
+
+    --shadow-lg:0 25px 60px rgba(0,0,0,.12);
+
+}
+
+
+/* ==============================
+HERO SYSTEM
+============================== */
+
+:root{
+
+    --hero-height:clamp(280px,25vw,340px);
+
+    --hero-height-mobile:clamp(180px,22vw,240px);
+
+    --hero-content-width:800px;
+
+    --hero-padding-block:clamp(40px,6vw,70px);
+
+    --hero-overlay:rgba(0,0,0,.38);
+
+    --hero-overlay-light:rgba(0,0,0,.25);
+
+    --hero-overlay-dark:rgba(0,0,0,.50);
+
+}
+
+:root {
+    --services-showcase-height: 520px;
+}
+
+
+/*=====================================
+RADIUS
+=====================================*/
+
+:root{
+
+    --radius-sm:10px;
+
+    --radius-md:16px;
+
+    --radius-lg:20px;
+
+    --radius-pill:999px;
+
+}
+
+/*=====================================
+LAYOUT
+=====================================*/
+
+:root{
+
+    --container:1200px;
+
+    --header-height:88px;
+
+}
+
+/*=====================================
+TRANSITIONS
+=====================================*/
+
+:root{
+
+    --transition-fast:.2s ease;
+
+    --transition:.3s ease;
+
+    --transition-slow:.5s ease;
+
+}
+
+:root{
+
+    --z-dropdown:100;
+
+    --z-sticky:500;
+
+    --z-overlay:900;
+
+    --z-menu:1000;
+
+    --z-modal:1100;
+
+    --z-toast:1200;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-0{
+
+    margin-top:0;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.visually-hidden{
+
+    position:absolute;
+
+    width:1px;
+
+    height:1px;
+
+    overflow:hidden;
+
+    clip:rect(0,0,0,0);
+
+}
