@@ -725,8 +725,10 @@ function initActiveNavigation() {
 
     let currentPage =
         window.location.pathname
+            .replace(/\/+$/, "")
             .split("/")
-            .pop();
+            .pop()
+            .toLowerCase();
 
 
     /*----------------------------------------------
@@ -735,8 +737,25 @@ function initActiveNavigation() {
 
     if (!currentPage) {
 
-        currentPage =
-            "index.html";
+        currentPage = "index.html";
+
+    }
+
+
+    /*----------------------------------------------
+        CLOUDFLARE PAGES ROUTES
+
+        Cloudflare removes .html from
+        public URLs, so normalize:
+
+        /about      → about.html
+        /services   → services.html
+        /contact    → contact.html
+    ----------------------------------------------*/
+
+    if (!currentPage.endsWith(".html")) {
+
+        currentPage += ".html";
 
     }
 
