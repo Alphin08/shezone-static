@@ -41,13 +41,17 @@ h6 {
 
 }
 
+/* ============================================
+   GLOBAL TAP INTERACTION
+============================================= */
+
+a,
 button,
 input,
 textarea,
 select {
-
+    -webkit-tap-highlight-color: transparent;
     font: inherit;
-
 }
 
 .container {
@@ -2676,7 +2680,8 @@ IMAGE FRAME
 }
 
 .blog-header{
-    display:flex;
+    display:grid;
+    grid-template-columns: 1fr .4fr;
     justify-content:space-between;
     align-items:end;
     margin-bottom:48px;
@@ -2689,6 +2694,17 @@ IMAGE FRAME
     font-weight:var(--fw-regular);
     line-height:1;
     letter-spacing:-.03em;
+}
+
+.blog-mobile-break{
+
+    display: none;
+}
+
+.blog-view-all{
+
+    position: relative;
+    text-align: right;
 }
 
 .blog-grid{
@@ -5360,6 +5376,8 @@ body.modal-open {
 
 .about-feature-content h3 {
     margin: 0 0 10px;
+
+    letter-spacing: 1px;
 
     font-family: var(--heading-font);
 
