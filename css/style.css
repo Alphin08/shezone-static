@@ -4711,16 +4711,6 @@ body.modal-open {
     font-weight: var(--fw-medium);
 }
 
-
-/*--------------------------------------
-  CATEGORY INTRO
---------------------------------------*/
-
-.service-category-intro {
-    padding-bottom: 70px;
-}
-
-
 /*--------------------------------------
   SERVICE DETAILS SECTION
 --------------------------------------*/
@@ -4776,6 +4766,10 @@ body.modal-open {
 .service-detail-image {
     position: relative;
 
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     overflow: hidden;
 
     aspect-ratio: 4 / 3;
@@ -4789,6 +4783,7 @@ body.modal-open {
     display: block;
 
     width: 100%;
+    max-width: 100%;
     height: 100%;
 
     object-fit: cover;
@@ -4798,6 +4793,21 @@ body.modal-open {
 
 .service-detail:hover .service-detail-image img {
     transform: scale(1.03);
+}
+
+.service-detail {
+    scroll-margin-top: 100px;
+    min-width: 0;
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+    align-items: center;
+    gap: 70px;
+    min-width: 0;
 }
 
 
@@ -4858,17 +4868,14 @@ body.modal-open {
     display: inline-flex;
 
     align-items: center;
-
     gap: 8px;
 
-    width: max-content;
+    max-width: 100%;
 
     font-size: var(--fs-sm);
-
     font-weight: var(--fw-semibold);
 
     color: var(--black);
-
     text-decoration: none;
 
     transition:
