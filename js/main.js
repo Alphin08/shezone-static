@@ -40,6 +40,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/*==================================================
+    PAGE PATH NORMALIZER
+==================================================*/
+
+function normalizePagePath(pathname) {
+
+    let page =
+        pathname
+            .split("?")[0]
+            .split("#")[0]
+            .replace(/\/+$/, "")
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    if (!page) {
+        return "index.html";
+    }
+
+    if (!page.endsWith(".html")) {
+        page += ".html";
+    }
+
+    return page;
+}
+
 
 /*==================================================
     SCROLL PROGRESS
@@ -212,9 +238,9 @@ function initServicesNavigation() {
     ----------------------------------------------*/
 
     const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop() || "index.html";
+        normalizePagePath(
+            window.location.pathname
+        );
 
 
     /*----------------------------------------------
@@ -234,16 +260,23 @@ function initServicesNavigation() {
 
 
         const linkPage =
-            href
-                .split("/")
-                .pop();
+            normalizePagePath(
+                new URL(
+                    href,
+                    window.location.href
+                ).pathname
+            );
 
 
-        if (linkPage === currentPage) {
+        if (
+            linkPage === currentPage
+        ) {
 
             servicePageOpen = true;
 
-            link.classList.add("active");
+            link.classList.add(
+                "active"
+            );
 
         }
 
@@ -251,8 +284,22 @@ function initServicesNavigation() {
 
 
     /*----------------------------------------------
+        INSTRUCTIONS PAGE
+    ----------------------------------------------*/
+
+    if (
+        currentPage ===
+        "instructions.html"
+    ) {
+
+        servicePageOpen = true;
+
+    }
+
+
+    /*----------------------------------------------
         ACTIVE SERVICES STATE
-        Applies to all five nested pages
+        Applies to service pages
     ----------------------------------------------*/
 
     if (servicePageOpen) {
@@ -266,9 +313,13 @@ function initServicesNavigation() {
 
     /*----------------------------------------------
         ACTIVE SERVICE PAGE
+        Mobile only
     ----------------------------------------------*/
 
-    if (servicePageOpen && window.innerWidth <= 1150) {
+    if (
+        servicePageOpen &&
+        window.innerWidth <= 1150
+    ) {
 
         servicesDropdown.classList.add(
             "open"
@@ -339,7 +390,9 @@ function initServicesNavigation() {
         "mouseenter",
         () => {
 
-            if (window.innerWidth > 1150) {
+            if (
+                window.innerWidth > 1150
+            ) {
 
                 servicesDropdown.classList.add(
                     "open"
@@ -357,23 +410,25 @@ function initServicesNavigation() {
 
 
     servicesDropdown.addEventListener(
-    "mouseleave",
-    () => {
+        "mouseleave",
+        () => {
 
-        if (window.innerWidth > 1150) {
+            if (
+                window.innerWidth > 1150
+            ) {
 
-            servicesDropdown.classList.remove(
-                "open"
-            );
+                servicesDropdown.classList.remove(
+                    "open"
+                );
 
-            servicesToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                servicesToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
 
         }
-
-    }
     );
 
 }
