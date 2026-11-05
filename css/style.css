@@ -7144,3 +7144,169 @@ body.modal-open {
     font-size: 12px;
 }
 
+
+
+/* ============================================
+   PROMOTIONAL POPUP
+============================================ */
+
+body.promo-popup-open {
+    overflow: hidden;
+}
+
+.promo-popup {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.promo-popup.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* BACKDROP */
+
+.promo-popup-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(20, 24, 22, 0.72);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* POPUP CONTAINER */
+
+.promo-popup-dialog {
+    position: relative;
+    z-index: 1;
+
+    width: min(100%, 460px);
+
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+
+    transform: translateY(18px) scale(0.98);
+
+    transition:
+        transform 0.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.promo-popup.is-visible .promo-popup-dialog {
+    transform: translateY(0) scale(1);
+}
+
+
+/* CLICKABLE POSTER */
+
+.promo-popup-link {
+    display: block;
+
+    width: 100%;
+
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+
+    overflow: hidden;
+}
+
+.promo-popup-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+
+    object-fit: contain;
+}
+
+
+/* CLOSE BUTTON */
+
+.promo-popup-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    z-index: 3;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+
+    background: rgba(25,25,25,.58);
+
+    color: var(--white);
+
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background var(--transition),
+        transform var(--transition);
+}
+
+.promo-popup-close:hover {
+    background: var(--primary-dark);
+}
+
+
+/* KEYBOARD ACCESSIBILITY */
+
+.promo-popup-close:focus-visible,
+.promo-popup-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .promo-popup,
+    .promo-popup-dialog,
+    .promo-popup-close {
+        transition: none;
+    }
+
+}

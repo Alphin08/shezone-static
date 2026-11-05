@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initArticleShare();
     initInstructionsButton()
 
+    initPromoPopup();
+
 });
 
 /*==================================================
@@ -2327,3 +2329,243 @@ function initInstructionsButton() {
         pdfLink.remove();
     });
 }
+
+
+
+
+/*==================================================
+    PROMOTIONAL POPUP
+    Site-wide advertisement modal
+==================================================*/
+
+function initPromoPopup() {
+
+    const STORAGE_KEY = "sheZonePromoSeen_v1";
+
+    // Check whether the promotion has already appeared
+    // during this browsing session.
+
+    try {
+
+        if (sessionStorage.getItem(STORAGE_KEY)) {
+            return;
+        }
+
+    } catch (error) {
+
+        console.warn("Session storage unavailable:", error);
+
+    }
+
+
+    /*----------------------------------------------
+        PROMOTION CONFIGURATION
+    ----------------------------------------------*/
+
+    const promoConfig = {
+
+        image: "assets/images/promo-poster.webp",
+
+        imageAlt: "Special promotion at She Zone Beauty Lounge & Spa",
+
+        link: "https://wa.me/918714790112",
+
+        target: "_blank",
+
+        delay: 700
+
+    };
+
+
+    /*----------------------------------------------
+        CREATE POPUP
+    ----------------------------------------------*/
+
+    const popup = document.createElement("div");
+
+    popup.className = "promo-popup";
+
+    popup.setAttribute("aria-hidden", "true");
+
+    popup.innerHTML = `
+        <div
+            class="promo-popup-backdrop"
+            data-promo-close>
+        </div>
+
+        <section
+            class="promo-popup-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Special promotion">
+
+            <button
+                class="promo-popup-close"
+                type="button"
+                aria-label="Close promotion"
+                data-promo-close>
+                &times;
+            </button>
+
+            <a class="promo-popup-link">
+                <img
+                    class="promo-popup-image"
+                    alt=""
+                    loading="eager">
+            </a>
+
+        </section>
+    `;
+
+
+    /*----------------------------------------------
+        CONFIGURE POSTER
+    ----------------------------------------------*/
+
+    const posterLink =
+        popup.querySelector(".promo-popup-link");
+
+    const posterImage =
+        popup.querySelector(".promo-popup-image");
+
+
+    posterLink.href = promoConfig.link;
+
+    posterLink.target = promoConfig.target;
+
+    posterLink.rel = "noopener noreferrer";
+
+    posterImage.src = promoConfig.image;
+
+    posterImage.alt = promoConfig.imageAlt;
+
+
+    document.body.appendChild(popup);
+
+
+    /*----------------------------------------------
+        CLOSE POPUP
+    ----------------------------------------------*/
+
+    function closePopup() {
+
+        popup.classList.remove("is-visible");
+
+        popup.setAttribute("aria-hidden", "true");
+
+        document.body.classList.remove("promo-popup-open");
+
+        document.removeEventListener(
+            "keydown",
+            handleKeydown
+        );
+
+    }
+
+
+    const closeButtons =
+        popup.querySelectorAll("[data-promo-close]");
+
+
+    closeButtons.forEach(button => {
+
+        button.addEventListener("click", closePopup);
+
+    });
+
+
+    /*----------------------------------------------
+        KEYBOARD INTERACTION
+    ----------------------------------------------*/
+
+    function handleKeydown(event) {
+
+        if (event.key === "Escape") {
+
+            closePopup();
+
+            return;
+
+        }
+
+
+        if (event.key === "Tab") {
+
+            const closeButton =
+                popup.querySelector(".promo-popup-close");
+
+            const poster =
+                popup.querySelector(".promo-popup-link");
+
+
+            if (
+                event.shiftKey &&
+                document.activeElement === closeButton
+            ) {
+
+                event.preventDefault();
+
+                poster.focus();
+
+            } else if (
+                !event.shiftKey &&
+                document.activeElement === poster
+            ) {
+
+                event.preventDefault();
+
+                closeButton.focus();
+
+            }
+
+        }
+
+    }
+
+
+    /*----------------------------------------------
+        OPEN POPUP
+    ----------------------------------------------*/
+
+    function openPopup() {
+
+        try {
+
+            sessionStorage.setItem(STORAGE_KEY, "true");
+
+        } catch (error) {
+
+            console.warn("Could not save popup state:", error);
+
+        }
+
+
+        popup.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("promo-popup-open");
+
+        popup.classList.add("is-visible");
+
+
+        document.addEventListener(
+            "keydown",
+            handleKeydown
+        );
+
+
+        popup.querySelector(".promo-popup-close").focus();
+
+    }
+
+
+    /*----------------------------------------------
+        INITIAL DELAY
+    ----------------------------------------------*/
+
+    window.setTimeout(
+        openPopup,
+        promoConfig.delay
+    );
+
+}
+
