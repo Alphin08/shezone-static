@@ -4834,7 +4834,31 @@ body.modal-open {
 --------------------------------------*/
 
 .service-detail-content {
+
     max-width: 520px;
+
+}
+
+.service-detail-content strong {
+
+    font-size: var(--fs-lg);
+
+    color: rgb(122, 59, 22);
+}
+
+.service-detail-content ul{
+
+    
+
+    margin: 10px 0px 10px;
+
+}
+
+.service-detail-content li{
+
+    list-style-type: disc;
+
+    margin-left: 20px;
 }
 
 .service-detail-tag {
