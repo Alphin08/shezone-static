@@ -2504,7 +2504,7 @@ IMAGE FRAME
 
     background: var(--primary-dark);
 
-    background-image: url("../assets/images/home-cta-bg.png");
+    background-image: url("../assets/images/home-cta-bg.webp");
 
     color: var(--white);
 
@@ -3882,7 +3882,7 @@ SERVICE PAGE
 
 .services-hero {
 
-    background-image: url("../assets/images/services-hero.png");
+    background-image: url("../assets/images/services-hero.webp");
 
 }
 
@@ -5015,7 +5015,7 @@ body.modal-open {
 
 .about-hero {
 
-    background-image: url("../assets/images/about-hero.png");
+    background-image: url("../assets/images/about-hero.webp");
 
 }
 
@@ -5620,7 +5620,7 @@ body.modal-open {
 
 .membership-hero {
 
-    background-image: url("../assets/images/membership-hero.png");
+    background-image: url("../assets/images/membership-hero.webp");
 
     margin-bottom: 80px;
 
@@ -5628,7 +5628,7 @@ body.modal-open {
 
 .instructions-hero {
 
-    background-image: url("../assets/images/instructions-hero.png");
+    background-image: url("../assets/images/instructions-hero.webp");
 }
 
 .membership-details-section {
@@ -5642,7 +5642,7 @@ body.modal-open {
 .gallery-hero {
 
     background-image:
-        url("../assets/images/gallery-hero.png");
+        url("../assets/images/gallery-hero.webp");
 
         margin-bottom: 80px;
 }
@@ -6090,7 +6090,7 @@ body.modal-open {
 .contact-hero {
 
     background-image: 
-        url("../assets/images/contact-hero.png");
+        url("../assets/images/contact-hero.webp");
 
         margin-bottom: 80px;
 }
@@ -6503,7 +6503,7 @@ body.modal-open {
 .blog-hero {
 
     background-image: 
-        url("../assets/images/blog-hero.png");
+        url("../assets/images/blog-hero.webp");
 
         margin-bottom: 80px;
 }
@@ -6518,31 +6518,31 @@ body.modal-open {
 
 .hair-hero {
 
-    background-image: url("../assets/images/services/hair-care-hero.png");
+    background-image: url("../assets/images/services/hair-care-hero.webp");
     
 }
 
 .hand-foot-nail-hero {
 
-    background-image: url("../assets/images/services/hand-foot-nail-care-hero.png");
+    background-image: url("../assets/images/services/hand-foot-nail-care-hero.webp");
     
 }
 
 .makeup-bridal-hero{
 
-    background-image: url("../assets/images/services/makeup-bridal-hero.png");
+    background-image: url("../assets/images/services/makeup-bridal-hero.webp");
     
 }
 
 .other-services-hero {
 
-    background-image: url("../assets/images/services/home-service-hero.png");
+    background-image: url("../assets/images/services/home-service-hero.webp");
     
 }
 
 .skin-body-hero {
 
-    background-image: url("../assets/images/services/skin-body-care-hero.png");
+    background-image: url("../assets/images/services/skin-body-care-hero.webp");
     
 }
 
