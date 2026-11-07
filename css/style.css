@@ -4594,6 +4594,7 @@ body.modal-open {
 
 
 .info-modal-note li {
+    
     margin-left: 10px;
 
     color: var(--text);
@@ -4612,8 +4613,8 @@ body.modal-open {
 .info-modal-close {
     position: absolute;
 
-    top: -21px;
-    right: -21px;
+    top: -15px;
+    right: -15px;
 
     z-index: 10;
 
@@ -7210,7 +7211,7 @@ body.promo-popup-open {
     position: absolute;
     inset: 0;
 
-    background: rgba(20, 24, 22, 0.72);
+    background: rgba(203, 209, 205, 0.25);
 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -7228,7 +7229,7 @@ body.promo-popup-open {
     max-height: calc(100vh - 40px);
     max-height: calc(100dvh - 40px);
 
-    overflow: hidden;
+    overflow: visible;
 
     background: var(--white);
 
@@ -7277,13 +7278,14 @@ body.promo-popup-open {
 
 .promo-popup-close {
     position: absolute;
-    top: 8px;
-    right: 8px;
 
-    z-index: 3;
+    top: -21px;
+    right: -21px;
 
-    width: 40px;
-    height: 40px;
+    z-index: 1101;
+
+    width: 42px;
+    height: 42px;
 
     display: flex;
     align-items: center;
@@ -7291,28 +7293,25 @@ body.promo-popup-open {
 
     padding: 0;
 
-    border: 1px solid rgba(255,255,255,.35);
+    border: 1px solid rgba(17, 17, 17, 0.12);
     border-radius: 50%;
 
-    background: rgba(25,25,25,.58);
-
-    color: var(--white);
-
-    font-family: Arial, sans-serif;
-    font-size: 32px;
-    line-height: 1;
+    background: var(--white);
 
     cursor: pointer;
 
-    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 
     transition:
+        transform var(--transition),
         background var(--transition),
-        transform var(--transition);
+        border-color var(--transition);
 }
 
 .promo-popup-close:hover {
-    background: var(--primary-dark);
+
+    background: rgb(0, 0, 0);
+    transform: rotate(90deg);
 }
 
 

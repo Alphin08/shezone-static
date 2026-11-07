@@ -2400,11 +2400,16 @@ function initPromoPopup() {
             aria-label="Special promotion">
 
             <button
-                class="promo-popup-close"
+                class="info-modal-close promo-popup-close"
                 type="button"
-                aria-label="Close promotion"
-                data-promo-close>
-                &times;
+                data-promo-close
+                aria-label="Close promotion">
+
+                <img
+                    src="assets/icons/close-btn.png"
+                    alt=""
+                    aria-hidden="true">
+
             </button>
 
             <a class="promo-popup-link">
