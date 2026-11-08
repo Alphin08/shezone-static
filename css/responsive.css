@@ -2300,8 +2300,8 @@
     }
 
     .promo-popup-close {
-        top: 10px;
-        right: 10px;
+        top: -10px;
+        right: -10px;
 
         width: 36px;
         height: 36px;
